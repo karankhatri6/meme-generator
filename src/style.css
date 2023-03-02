@@ -9,6 +9,10 @@ body {
     font-family: 'Karla', sans-serif;
 }
 
+main{
+    padding: 36px;
+}
+
 .navbar{
     display: flex;
     align-items: center;
@@ -26,4 +30,29 @@ body {
 .navbar h2{
     font-size: 1.25rem;
     margin-left: 7px;
+}
+
+.form {
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
+}
+
+.form .form--input{
+    font-family: 'Karla', sans-serif;
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    text-indent: 5px;
+}
+
+.form .form--btn{
+    font-family: 'Karla', sans-serif;
+    grid-column: 1 / -1;
+    text-indent: 5px;
+    color: white;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
 }
