@@ -6,7 +6,7 @@ const Meme = () => {
   const [meme, setMeme] = useState({
     topText: "", 
     bottomText: "",
-    randomImage: ""
+    randomImage: "https://i.imgflip.com/30b1gx.jpg"
   });
 
   const [allMemeImages, setAllMemeImages] = useState(memesData);
@@ -21,18 +21,32 @@ const Meme = () => {
     }))
   }
 
+  function handleChange(event){
+    const {name, value} = event.target
+    setMeme(preState => ({
+      ...preState,
+      [name]: value
+    }))
+  }
+
   return (
     <main>
         <div className='form'>
             <input 
               type="text" 
               placeholder='Top text' 
-              className='form--input' 
+              className='form--input'
+              name="topText"
+              value={meme.topText} 
+              onChange={handleChange}
             />
             <input 
               type="text" 
               placeholder='Bottom text' 
-              className='form--input' 
+              className='form--input'
+              name="bottomText"
+              value={meme.bottomText}
+              onChange={handleChange}  
             />
             <button 
               className='form--btn'
@@ -41,7 +55,11 @@ const Meme = () => {
               Get a new meme image  🖼
             </button>
         </div>
-        <img src={meme.randomImage} className="meme--image" />
+        <div className="meme">
+                <img src={meme.randomImage} className="meme--image" />
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            </div>
     </main>
   );
 };
